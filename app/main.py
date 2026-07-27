@@ -94,6 +94,68 @@ def health_check():
     return {"status": "ok"}
 
 
+@app.get("/dashboard/patients", tags=["Dashboard"])
+def dashboard_patients(db: Session = Depends(get_db)):
+    items, total = crud.list_patients(db, page=1, page_size=200)
+    return [
+        {
+            "id": p.id,
+            "mrn": p.mrn,
+            "name": f"{p.first_name} {p.last_name}",
+            "care_unit": p.care_unit,
+        }
+        for p in items
+    ]
+
+
+@app.get("/dashboard/patient/{patient_id}/live", tags=["Dashboard"])
+def dashboard_patient_live(patient_id: UUID, db: Session = Depends(get_db)):
+    patient = crud.get_patient(db, patient_id)
+    vitals, _ = crud.list_vital_signs(db, patient_id=patient_id, page=1, page_size=20)
+    activities, _ = crud.list_activity_data(db, patient_id=patient_id, page=1, page_size=20)
+    alerts, _ = alert_crud.list_alerts(db, patient_id=patient_id, status=AlertStatus.open, page=1, page_size=10)
+    return {
+        "patient": {
+            "id": patient.id,
+            "mrn": patient.mrn,
+            "name": f"{patient.first_name} {patient.last_name}",
+            "care_unit": patient.care_unit,
+        },
+        "vitals": [
+            {
+                "id": v.id,
+                "vital_type": v.vital_type.value,
+                "value": float(v.value),
+                "unit": v.unit,
+                "recorded_at": v.recorded_at.isoformat(),
+                "is_flagged": v.is_flagged,
+            }
+            for v in vitals
+        ],
+        "activities": [
+            {
+                "id": a.id,
+                "activity_type": a.activity_type.value,
+                "value": float(a.value),
+                "unit": a.unit,
+                "recorded_date": a.recorded_date.isoformat(),
+            }
+            for a in activities
+        ],
+        "alerts": [
+            {
+                "id": str(alert.id),
+                "rule_type": alert.rule_type,
+                "severity": alert.severity.value,
+                "status": alert.status.value,
+                "message": alert.message,
+                "created_at": alert.created_at.isoformat(),
+            }
+            for alert in alerts
+        ],
+    }
+
+
 @app.get("/", tags=["Root"])
 def root():
     return {"status": "ok", "message": "HealthTrack API — see /docs for endpoints"}
