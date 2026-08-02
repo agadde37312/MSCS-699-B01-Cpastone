@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Risk Report - J. Alvarez</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #f4f6f8; color: #1a1a1a; }
+  .card { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  h1 { font-size: 20px; margin: 0; }
+  .level-badge { display: inline-block; padding: 6px 16px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 14px; background: #C62828; }
+  .meta { color: #666; font-size: 13px; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+  th { color: #666; font-weight: 600; }
+  .badge-pts { display:inline-block; min-width: 20px; text-align:center; padding:2px 6px; border-radius:4px; background:#eee; font-size:12px; }
+  .factor { margin-bottom: 6px; font-size: 14px; }
+  .disclaimer { font-size: 12px; color: #a05a00; background: #fff8e1; border: 1px solid #ffe0a0; border-radius: 6px; padding: 10px 12px; margin-bottom: 12px; }
+  .rec { font-size: 14px; margin-bottom: 6px; padding-left: 10px; border-left: 3px solid #ccc; }
+  .trend-worsening { color: #C62828; font-weight: 600; }
+  .trend-improving { color: #2E7D32; font-weight: 600; }
+  .trend-stable { color: #666; }
+  .section-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #333; }
+</style>
+</head>
+<body>
+
+<div class="card header">
+  <div>
+    <h1>J. Alvarez</h1>
+    <div class="meta">Patient ID: PT-10432 &nbsp;|&nbsp; Generated: 2026-08-01T03:28:49.736130+00:00</div>
+  </div>
+  <div class="level-badge">Critical RISK</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Risk Score</div>
+  <div class="meta">12 of 21 points &nbsp;|&nbsp; Urgency: Immediate clinical response required</div>
+  <div class='meta'>Predictive model: 63.0% estimated probability of an adverse event within 72 hours</div>
+  <table>
+    <tr><th>Metric</th><th>Value</th><th>Band</th><th>Points</th></tr>
+    <tr><td>respiratory_rate</td><td>24.0</td><td>elevated</td><td><span class='badge-pts'>2</span></td></tr><tr><td>spo2</td><td>91.0</td><td>critically low</td><td><span class='badge-pts'>3</span></td></tr><tr><td>systolic_bp</td><td>88.0</td><td>critically low</td><td><span class='badge-pts'>3</span></td></tr><tr><td>diastolic_bp</td><td>55.0</td><td>low</td><td><span class='badge-pts'>1</span></td></tr><tr><td>heart_rate</td><td>118.0</td><td>high</td><td><span class='badge-pts'>2</span></td></tr><tr><td>temperature_c</td><td>38.9</td><td>fever</td><td><span class='badge-pts'>1</span></td></tr><tr><td>blood_glucose</td><td>140.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="section-title">Risk Trend</div>
+  <div class='trend-worsening'>WORSENING</div><div class='meta'>Slope: 0.3238 pts/reading &nbsp;|&nbsp; Latest: 12.0 &nbsp;|&nbsp; Mean: 4.67 &nbsp;|&nbsp; Based on 6 readings</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Contributing Risk Factors</div>
+  <div class='factor'>&bull; Oxygen saturation (SpO2) of 91.0 is classified as 'critically low', contributing 3 of 3 possible points on this metric to the overall risk score.</div><div class='factor'>&bull; Systolic blood pressure of 88.0 is classified as 'critically low', contributing 3 of 3 possible points on this metric to the overall risk score.</div><div class='factor'>&bull; Respiratory rate of 24.0 is classified as 'elevated', contributing 2 of 3 possible points on this metric to the overall risk score.</div><div class='factor'>&bull; Heart rate of 118.0 is classified as 'high', contributing 2 of 3 possible points on this metric to the overall risk score.</div><div class='factor'>&bull; Diastolic blood pressure of 55.0 is classified as 'low', contributing 1 of 3 possible points on this metric to the overall risk score.</div><div class='factor'>&bull; Body temperature of 38.9 is classified as 'fever', contributing 1 of 3 possible points on this metric to the overall risk score.</div>
+  <div class='factor'><b>Pattern:</b> Combination of elevated heart rate, low blood pressure, and fever/high temperature — a pattern consistent with possible sepsis and warranting urgent review.</div><div class='factor'><b>Pattern:</b> Combination of low oxygen saturation and elevated respiratory rate — a pattern consistent with possible respiratory compromise.</div><div class='factor'><b>Pattern:</b> Low blood pressure with elevated heart rate and normal glucose — a pattern consistent with possible hemodynamic instability (e.g., volume loss, cardiac cause).</div>
+  
+</div>
+
+<div class="card">
+  <div class="disclaimer">SYSTEM-GENERATED SUGGESTION -- for clinical decision support only. Not a diagnosis and not a substitute for clinical judgement. A qualified healthcare provider must review and confirm any action.</div>
+  <div class="section-title">Recommendations</div>
+  <div class='rec'>Escalate for immediate clinical response. <span class='meta'>(basis: risk_level_critical)</span></div><div class='rec'>Consider supplemental oxygen assessment and repeat SpO2 reading; verify sensor placement. <span class='meta'>(basis: spo2)</span></div><div class='rec'>Recommend clinical assessment of respiratory status and work of breathing. <span class='meta'>(basis: respiratory_rate)</span></div><div class='rec'>Recommend ECG/cardiac review given significant heart-rate abnormality. <span class='meta'>(basis: heart_rate)</span></div><div class='rec'>Recommend fluid status and hemodynamic assessment given low blood pressure. <span class='meta'>(basis: systolic_bp_low)</span></div><div class='rec'>Recommend infection/thermoregulation workup if temperature trend persists. <span class='meta'>(basis: temperature)</span></div><div class='rec'>Multiple abnormal vitals cluster into a recognized pattern -- recommend prioritized clinical review rather than addressing each vital in isolation. <span class='meta'>(basis: compound_pattern)</span></div><div class='rec'>Risk trend is worsening over recent readings -- recommend increasing monitoring frequency even if the current single reading is not yet severe. <span class='meta'>(basis: trend_worsening)</span></div>
+</div>
+
+</body>
+</html>

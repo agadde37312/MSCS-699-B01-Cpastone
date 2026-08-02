@@ -1,0 +1,142 @@
+{
+  "patient_id": "PT-30556",
+  "patient_name": "R. Douglas",
+  "generated_at": "2026-08-01T03:28:49.737455+00:00",
+  "latest_reading": {
+    "heart_rate": 95.0,
+    "systolic_bp": 130.0,
+    "diastolic_bp": 82.0,
+    "spo2": 88.0,
+    "temperature_c": 37.0,
+    "respiratory_rate": 26.0,
+    "blood_glucose": 105.0
+  },
+  "risk_score": {
+    "total_score": 7,
+    "max_possible": 21,
+    "metric_breakdown": [
+      {
+        "metric": "respiratory_rate",
+        "value": 26.0,
+        "points": 3,
+        "band": "critically high"
+      },
+      {
+        "metric": "spo2",
+        "value": 88.0,
+        "points": 3,
+        "band": "critically low"
+      },
+      {
+        "metric": "systolic_bp",
+        "value": 130.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "diastolic_bp",
+        "value": 82.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "heart_rate",
+        "value": 95.0,
+        "points": 1,
+        "band": "elevated"
+      },
+      {
+        "metric": "temperature_c",
+        "value": 37.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "blood_glucose",
+        "value": 105.0,
+        "points": 0,
+        "band": "normal"
+      }
+    ]
+  },
+  "risk_level": {
+    "label": "High",
+    "color": "orange",
+    "color_hex": "#EF6C00",
+    "urgency": "Urgent clinical review within 1h",
+    "score_range": "7-11"
+  },
+  "predictive_model_probability_72h": 0.41,
+  "trend": {
+    "n_points": 6,
+    "slope": 0.2048,
+    "direction": "worsening",
+    "volatility": 0.264,
+    "r_squared": 0.984,
+    "latest_score": 7.0,
+    "mean_score": 3.83
+  },
+  "risk_factors": {
+    "total_score": 7,
+    "max_possible": 21,
+    "contributing_factors": [
+      {
+        "metric": "respiratory_rate",
+        "label": "Respiratory rate",
+        "value": 26.0,
+        "points": 3,
+        "band": "critically high",
+        "explanation": "Respiratory rate of 26.0 is classified as 'critically high', contributing 3 of 3 possible points on this metric to the overall risk score."
+      },
+      {
+        "metric": "spo2",
+        "label": "Oxygen saturation (SpO2)",
+        "value": 88.0,
+        "points": 3,
+        "band": "critically low",
+        "explanation": "Oxygen saturation (SpO2) of 88.0 is classified as 'critically low', contributing 3 of 3 possible points on this metric to the overall risk score."
+      },
+      {
+        "metric": "heart_rate",
+        "label": "Heart rate",
+        "value": 95.0,
+        "points": 1,
+        "band": "elevated",
+        "explanation": "Heart rate of 95.0 is classified as 'elevated', contributing 1 of 3 possible points on this metric to the overall risk score."
+      }
+    ],
+    "compound_patterns": [
+      {
+        "pattern": "possible_respiratory_failure",
+        "explanation": "Combination of low oxygen saturation and elevated respiratory rate \u2014 a pattern consistent with possible respiratory compromise."
+      }
+    ],
+    "baseline_deviations": []
+  },
+  "recommendations": {
+    "disclaimer": "SYSTEM-GENERATED SUGGESTION -- for clinical decision support only. Not a diagnosis and not a substitute for clinical judgement. A qualified healthcare provider must review and confirm any action.",
+    "risk_level": "High",
+    "recommendations": [
+      {
+        "recommendation": "Schedule urgent clinical review within the hour.",
+        "basis": "risk_level_high"
+      },
+      {
+        "recommendation": "Consider supplemental oxygen assessment and repeat SpO2 reading; verify sensor placement.",
+        "basis": "spo2"
+      },
+      {
+        "recommendation": "Recommend clinical assessment of respiratory status and work of breathing.",
+        "basis": "respiratory_rate"
+      },
+      {
+        "recommendation": "Multiple abnormal vitals cluster into a recognized pattern -- recommend prioritized clinical review rather than addressing each vital in isolation.",
+        "basis": "compound_pattern"
+      },
+      {
+        "recommendation": "Risk trend is worsening over recent readings -- recommend increasing monitoring frequency even if the current single reading is not yet severe.",
+        "basis": "trend_worsening"
+      }
+    ]
+  }
+}
