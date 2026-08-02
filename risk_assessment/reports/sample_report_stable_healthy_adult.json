@@ -1,0 +1,96 @@
+{
+  "patient_id": "PT-20117",
+  "patient_name": "M. Chen",
+  "generated_at": "2026-08-01T03:28:49.737029+00:00",
+  "latest_reading": {
+    "heart_rate": 70.0,
+    "systolic_bp": 118.0,
+    "diastolic_bp": 76.0,
+    "spo2": 98.0,
+    "temperature_c": 36.7,
+    "respiratory_rate": 15.0,
+    "blood_glucose": 95.0
+  },
+  "risk_score": {
+    "total_score": 0,
+    "max_possible": 21,
+    "metric_breakdown": [
+      {
+        "metric": "respiratory_rate",
+        "value": 15.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "spo2",
+        "value": 98.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "systolic_bp",
+        "value": 118.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "diastolic_bp",
+        "value": 76.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "heart_rate",
+        "value": 70.0,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "temperature_c",
+        "value": 36.7,
+        "points": 0,
+        "band": "normal"
+      },
+      {
+        "metric": "blood_glucose",
+        "value": 95.0,
+        "points": 0,
+        "band": "normal"
+      }
+    ]
+  },
+  "risk_level": {
+    "label": "Low",
+    "color": "green",
+    "color_hex": "#2E7D32",
+    "urgency": "Routine monitoring",
+    "score_range": "0-2"
+  },
+  "predictive_model_probability_72h": 0.02,
+  "trend": {
+    "n_points": 6,
+    "slope": 0.0381,
+    "direction": "stable",
+    "volatility": 1.933,
+    "r_squared": 0.039,
+    "latest_score": 0.0,
+    "mean_score": 2.67
+  },
+  "risk_factors": {
+    "total_score": 0,
+    "max_possible": 21,
+    "contributing_factors": [],
+    "compound_patterns": [],
+    "baseline_deviations": []
+  },
+  "recommendations": {
+    "disclaimer": "SYSTEM-GENERATED SUGGESTION -- for clinical decision support only. Not a diagnosis and not a substitute for clinical judgement. A qualified healthcare provider must review and confirm any action.",
+    "risk_level": "Low",
+    "recommendations": [
+      {
+        "recommendation": "No specific risk factors identified; continue routine monitoring schedule.",
+        "basis": "routine"
+      }
+    ]
+  }
+}

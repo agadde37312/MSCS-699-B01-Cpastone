@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Risk Report - A. Rivera</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #f4f6f8; color: #1a1a1a; }
+  .card { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  h1 { font-size: 20px; margin: 0; }
+  .level-badge { display: inline-block; padding: 6px 16px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 14px; background: #2E7D32; }
+  .meta { color: #666; font-size: 13px; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+  th { color: #666; font-weight: 600; }
+  .badge-pts { display:inline-block; min-width: 20px; text-align:center; padding:2px 6px; border-radius:4px; background:#eee; font-size:12px; }
+  .factor { margin-bottom: 6px; font-size: 14px; }
+  .disclaimer { font-size: 12px; color: #a05a00; background: #fff8e1; border: 1px solid #ffe0a0; border-radius: 6px; padding: 10px 12px; margin-bottom: 12px; }
+  .rec { font-size: 14px; margin-bottom: 6px; padding-left: 10px; border-left: 3px solid #ccc; }
+  .trend-worsening { color: #C62828; font-weight: 600; }
+  .trend-improving { color: #2E7D32; font-weight: 600; }
+  .trend-stable { color: #666; }
+  .section-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #333; }
+</style>
+</head>
+<body>
+
+<div class="card header">
+  <div>
+    <h1>A. Rivera</h1>
+    <div class="meta">Patient ID: PT-00001 &nbsp;|&nbsp; Generated: 2026-08-01T03:37:36.860921+00:00</div>
+  </div>
+  <div class="level-badge">Low RISK</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Risk Score</div>
+  <div class="meta">0 of 21 points &nbsp;|&nbsp; Urgency: Routine monitoring</div>
+  <div class='meta'>Predictive model: 2.0% estimated probability of an adverse event within 72 hours</div>
+  <table>
+    <tr><th>Metric</th><th>Value</th><th>Band</th><th>Points</th></tr>
+    <tr><td>respiratory_rate</td><td>15.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>spo2</td><td>98.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>systolic_bp</td><td>118.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>diastolic_bp</td><td>76.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>heart_rate</td><td>70.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>temperature_c</td><td>36.7</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr><tr><td>blood_glucose</td><td>95.0</td><td>normal</td><td><span class='badge-pts'>0</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="section-title">Risk Trend</div>
+  <div class='trend-stable'>STABLE</div><div class='meta'>Slope: 0.0 pts/reading &nbsp;|&nbsp; Latest: 0.0 &nbsp;|&nbsp; Mean: 0.0 &nbsp;|&nbsp; Based on 4 readings</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Contributing Risk Factors</div>
+  <div class='meta'>No individual vital-sign metric scored above 0.</div>
+  
+  
+</div>
+
+<div class="card">
+  <div class="disclaimer">SYSTEM-GENERATED SUGGESTION -- for clinical decision support only. Not a diagnosis and not a substitute for clinical judgement. A qualified healthcare provider must review and confirm any action.</div>
+  <div class="section-title">Recommendations</div>
+  <div class='rec'>No specific risk factors identified; continue routine monitoring schedule. <span class='meta'>(basis: routine)</span></div>
+</div>
+
+</body>
+</html>

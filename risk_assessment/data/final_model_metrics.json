@@ -1,0 +1,55 @@
+{
+  "holdout_metrics": {
+    "model_type": "rf",
+    "n_train_readings": 12600,
+    "n_test_readings": 4200,
+    "n_train_patients": 225,
+    "n_test_patients": 75,
+    "positive_rate_test": 0.0217,
+    "accuracy": 0.9669,
+    "precision": 0.2931,
+    "recall": 0.3736,
+    "f1": 0.3285,
+    "roc_auc": 0.7998,
+    "pr_auc": 0.3664,
+    "confusion_matrix": [
+      [
+        4027,
+        82
+      ],
+      [
+        57,
+        34
+      ]
+    ]
+  },
+  "cv_stability": {
+    "model_type": "rf",
+    "n_splits": 5,
+    "fold_roc_auc": [
+      0.786,
+      0.8285,
+      0.738,
+      0.765,
+      0.8009
+    ],
+    "mean_roc_auc": 0.7837,
+    "std_roc_auc": 0.0308
+  },
+  "feature_importance": {
+    "spo2": 0.1555,
+    "trend_slope_6": 0.1303,
+    "respiratory_rate": 0.13,
+    "temperature_c": 0.1046,
+    "heart_rate": 0.0847,
+    "systolic_bp": 0.0769,
+    "age": 0.0742,
+    "blood_glucose": 0.0626,
+    "diastolic_bp": 0.0604,
+    "rule_based_score": 0.0569,
+    "copd": 0.0235,
+    "hypertension": 0.0227,
+    "heart_disease": 0.0094,
+    "diabetes": 0.0085
+  }
+}
