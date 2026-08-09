@@ -1,0 +1,119 @@
+/* ============================================================
+   HealthTrack Dashboard Stylesheet
+   ============================================================
+   This is the "before" version: normal, human-readable CSS
+   with comments and whitespace, not yet minified or bundled
+   with any build-time compression step.
+   ============================================================ */
+
+/* Reset some basic elements so the dashboard looks consistent
+   across browsers, since we cannot rely on a CSS reset library
+   being present in every deployment environment. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1a1a1a;
+    line-height: 1.5;
+}
+
+/* Top navigation bar styling */
+.topbar {
+    background-color: #1f4e78;
+    color: #ffffff;
+    padding: 20px 32px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.topbar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Main content layout container */
+.layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Summary cards row across the top of the dashboard */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    font-size: 28px;
+    color: #1f4e78;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Each chart gets its own card-style section with consistent
+   spacing so the dashboard reads as a coherent grid rather than
+   a loose stack of unrelated widgets. */
+.chart-section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    min-height: 340px;
+}
+
+.chart-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+/* Placeholder skeleton shown before a chart has rendered, used
+   by the lazy-loading version of the dashboard so the layout
+   does not jump around as charts pop in while scrolling. */
+.chart-placeholder {
+    height: 300px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #eeeeee 25%, #f5f5f5 37%, #eeeeee 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+/* Responsive behavior for smaller viewports */
+@media (max-width: 720px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .topbar h1 {
+        font-size: 18px;
+    }
+}

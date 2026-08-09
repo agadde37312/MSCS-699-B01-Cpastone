@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HealthTrack Dashboard (Before Optimization)</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>HealthTrack Patient Dashboard</h1>
+</header>
+
+<main class="layout">
+
+  <section class="summary-cards">
+    <div class="card"><h2>2,000</h2><p>Active Patients</p></div>
+    <div class="card"><h2>182,400</h2><p>Readings Logged</p></div>
+    <div class="card"><h2>14</h2><p>Critical Alerts Today</p></div>
+    <div class="card"><h2>96.2%</h2><p>System Uptime (30d)</p></div>
+  </section>
+
+  <!-- BEFORE: every chart on the page renders immediately on page load,
+       whether or not the user ever scrolls to see it. On a real dashboard
+       with 6-10 chart widgets below the fold, this means the browser pays
+       the full JS execution + chart-render cost for every widget up front,
+       even the ones nobody looks at on most visits. -->
+
+  <section class="chart-section" id="chart-heart-rate">
+    <h3>Heart Rate Trends (All Patients, 30 Days)</h3>
+    <canvas id="chart1" width="700" height="300"></canvas>
+  </section>
+
+  <section class="chart-section" id="chart-risk-distribution">
+    <h3>Risk Level Distribution</h3>
+    <canvas id="chart2" width="700" height="300"></canvas>
+  </section>
+
+  <section class="chart-section" id="chart-admissions">
+    <h3>Admissions by Department</h3>
+    <canvas id="chart3" width="700" height="300"></canvas>
+  </section>
+
+  <section class="chart-section" id="chart-glucose">
+    <h3>Glucose Variability (Diabetic Cohort)</h3>
+    <canvas id="chart4" width="700" height="300"></canvas>
+  </section>
+
+  <section class="chart-section" id="chart-spo2">
+    <h3>SpO2 Trends (COPD Cohort)</h3>
+    <canvas id="chart5" width="700" height="300"></canvas>
+  </section>
+
+  <section class="chart-section" id="chart-alerts">
+    <h3>Alert Volume by Severity (90 Days)</h3>
+    <canvas id="chart6" width="700" height="300"></canvas>
+  </section>
+
+</main>
+
+<script src="dashboard.js"></script>
+<script>
+  // BEFORE: all six charts are initialized immediately, unconditionally,
+  // on DOMContentLoaded -- regardless of scroll position.
+  document.addEventListener("DOMContentLoaded", function () {
+    renderChart("chart1", "line");
+    renderChart("chart2", "pie");
+    renderChart("chart3", "bar");
+    renderChart("chart4", "line");
+    renderChart("chart5", "line");
+    renderChart("chart6", "bar");
+  });
+</script>
+
+</body>
+</html>

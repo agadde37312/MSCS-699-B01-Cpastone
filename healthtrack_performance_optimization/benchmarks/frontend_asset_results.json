@@ -1,0 +1,13 @@
+{
+  "js_raw_bytes": 4120,
+  "js_raw_gzip_bytes": 1512,
+  "js_min_bytes": 2055,
+  "js_min_gzip_bytes": 870,
+  "css_raw_bytes": 2883,
+  "css_raw_gzip_bytes": 1197,
+  "css_min_bytes": 1339,
+  "css_min_gzip_bytes": 636,
+  "combined_before_bytes": 7003,
+  "combined_after_min_gzip_bytes": 1506,
+  "combined_reduction_pct": 78.5
+}
