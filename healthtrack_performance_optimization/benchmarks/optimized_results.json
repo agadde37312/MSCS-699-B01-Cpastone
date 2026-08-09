@@ -1,0 +1,114 @@
+{
+  "v1_with_indexes": [
+    {
+      "url": "/api/v1/patients",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 48.36,
+      "mean_ms": 63.44,
+      "median_ms": 52.17,
+      "p95_ms": 101.39,
+      "max_ms": 101.89,
+      "sql_queries_last_call": 1,
+      "name": "v1: List patients (no pagination)"
+    },
+    {
+      "url": "/api/v1/patients/5/readings",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 38.03,
+      "mean_ms": 44.6,
+      "median_ms": 39.65,
+      "p95_ms": 86.16,
+      "max_ms": 86.7,
+      "sql_queries_last_call": 1,
+      "name": "v1: Patient readings (heavy patient)"
+    },
+    {
+      "url": "/api/v1/dashboard/summary",
+      "status": 200,
+      "n_requests": 3,
+      "min_ms": 1983.98,
+      "mean_ms": 2016.01,
+      "median_ms": 2018.06,
+      "p95_ms": 2045.99,
+      "max_ms": 2045.99,
+      "sql_queries_last_call": 2001,
+      "name": "v1: Dashboard summary (N+1)"
+    },
+    {
+      "url": "/api/v1/patients/5/risk-report",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 20.81,
+      "mean_ms": 27.51,
+      "median_ms": 21.65,
+      "p95_ms": 75.25,
+      "max_ms": 81.09,
+      "sql_queries_last_call": 1,
+      "name": "v1: Risk report (heavy patient)"
+    }
+  ],
+  "v2_fully_optimized": [
+    {
+      "url": "/api/v2/patients?limit=50",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 2.86,
+      "mean_ms": 4.05,
+      "median_ms": 4.27,
+      "p95_ms": 4.72,
+      "max_ms": 4.92,
+      "sql_queries_last_call": 2,
+      "name": "v2: List patients (paginated)"
+    },
+    {
+      "url": "/api/v2/patients/5/readings?limit=50",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 4.27,
+      "mean_ms": 4.63,
+      "median_ms": 4.47,
+      "p95_ms": 4.93,
+      "max_ms": 6.34,
+      "sql_queries_last_call": 2,
+      "name": "v2: Patient readings (paginated)"
+    },
+    {
+      "url": "/api/v2/dashboard/summary",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 114.97,
+      "mean_ms": 131.06,
+      "median_ms": 121.06,
+      "p95_ms": 171.18,
+      "max_ms": 174.51,
+      "sql_queries_last_call": 2,
+      "name": "v2: Dashboard summary (aggregated SQL)"
+    },
+    {
+      "url": "/api/v2/patients/5/risk-report",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 2.16,
+      "mean_ms": 2.45,
+      "median_ms": 2.44,
+      "p95_ms": 2.73,
+      "max_ms": 2.78,
+      "sql_queries_last_call": 1,
+      "name": "v2: Risk report, 1st call (cache MISS)"
+    },
+    {
+      "url": "/api/v2/patients/5/risk-report",
+      "status": 200,
+      "n_requests": 20,
+      "min_ms": 2.21,
+      "mean_ms": 2.38,
+      "median_ms": 2.37,
+      "p95_ms": 2.61,
+      "max_ms": 2.61,
+      "sql_queries_last_call": 1,
+      "name": "v2: Risk report, repeat call (cache HIT)"
+    }
+  ]
+}

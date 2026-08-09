@@ -1,0 +1,7 @@
+{
+  "miss_mean_ms": 4.481,
+  "miss_median_ms": 3.129,
+  "hit_mean_ms": 2.267,
+  "hit_median_ms": 2.217,
+  "speedup_x": 1.98
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "url": "/api/v1/patients",
+    "status": 200,
+    "n_requests": 20,
+    "min_ms": 47.69,
+    "mean_ms": 62.87,
+    "median_ms": 50.66,
+    "p95_ms": 99.98,
+    "max_ms": 109.17,
+    "sql_queries_last_call": 1,
+    "name": "List patients (no pagination)"
+  },
+  {
+    "url": "/api/v1/patients/5/readings",
+    "status": 200,
+    "n_requests": 20,
+    "min_ms": 49.15,
+    "mean_ms": 57.38,
+    "median_ms": 53.05,
+    "p95_ms": 100.37,
+    "max_ms": 104.24,
+    "sql_queries_last_call": 1,
+    "name": "Patient readings (heavy patient, unindexed)"
+  },
+  {
+    "url": "/api/v1/dashboard/summary",
+    "status": 200,
+    "n_requests": 3,
+    "min_ms": 22326.06,
+    "mean_ms": 22812.34,
+    "median_ms": 22352.19,
+    "p95_ms": 23758.76,
+    "max_ms": 23758.76,
+    "sql_queries_last_call": 2001,
+    "name": "Dashboard summary (N+1 pattern)"
+  },
+  {
+    "url": "/api/v1/patients/5/risk-report",
+    "status": 200,
+    "n_requests": 20,
+    "min_ms": 31.56,
+    "mean_ms": 41.54,
+    "median_ms": 33.16,
+    "p95_ms": 90.66,
+    "max_ms": 100.63,
+    "sql_queries_last_call": 1,
+    "name": "Risk report (heavy patient, no cache)"
+  }
+]
