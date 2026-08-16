@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: healthtrack_user
+      POSTGRES_PASSWORD: change_me
+      POSTGRES_DB: healthtrack
+    volumes:
+      - healthtrack_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  api:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.api
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://healthtrack_user:change_me@db:5432/healthtrack
+      RISK_MODEL_PATH: /app/app/risk_model.joblib
+    ports:
+      - "8000:8000"
+
+  dashboard:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.dashboard
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      API_BASE_URL: http://api:8000
+    ports:
+      - "8050:8050"
+
+volumes:
+  healthtrack_pgdata:
